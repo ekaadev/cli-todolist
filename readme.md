@@ -2,7 +2,7 @@
 
  This is a continuation program of a short-notes, the next little improvement may add an edit feature in this program.
 
-[short-notes](https://bitbucket.org/some_project/some_page#markdown-header-my-paragraph-title) 
+[short-notes](https://github.com/ekaadev/short-notes)
 
 [![Java][JavaImg]][JavaUrl]
 
