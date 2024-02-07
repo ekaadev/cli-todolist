@@ -5,9 +5,6 @@ Feature
 - [x] Edit todo
 - [x] Remove todo
 
-
-## Tech stack
-
 [![Java][JavaImg]][JavaUrl]
 
 [JavaUrl]: https://www.java.com/en/
