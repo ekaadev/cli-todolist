@@ -1,8 +1,12 @@
 # Todolist CLI
 
- This is a continuation program of a short-notes, the next little improvement may add an edit feature in this program.
+Feature
+- [x] Add todo
+- [x] Edit todo
+- [x] Remove todo
 
-[short-notes](https://bitbucket.org/some_project/some_page#markdown-header-my-paragraph-title) 
+
+## Tech stack
 
 [![Java][JavaImg]][JavaUrl]
 
