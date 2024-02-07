@@ -117,6 +117,56 @@ public class Main {
 
 
     /**
+     * mengedit todolist
+     */
+    public static boolean checkUpdateTodo(Integer number) {
+        if (number > dataTodo.length) {
+            return false;
+        } else return dataTodo[number - 1] != null;
+    }
+
+    public static boolean checkAllTodo() {
+        boolean check = false;
+
+        for (String todo : dataTodo) {
+            if (todo != null) {
+                check = true;
+                break;
+            }
+        }
+
+        return check;
+    }
+
+    public static boolean updateTodo(Integer number, String update) {
+        if (number > dataTodo.length) {
+            return false;
+        } else if (dataTodo[number - 1] == null) {
+            return false;
+        } else {
+            dataTodo[number - 1] = update;
+            return true;
+        }
+    }
+
+    /**
+     * method untuk testing update todolist
+     */
+    public static void testUpdateTodo() {
+        addTodo("pertama");
+        addTodo("kedua");
+        addTodo("ketiga");
+        showTodo();
+
+        boolean test = updateTodo(2, "kedua di edit");
+        System.out.println();
+
+        showTodo();
+        System.out.println(test);
+    }
+
+
+    /**
      * mengembalikan string yang user inputkan
      */
     public static String input(Scanner sc, String info) {
@@ -142,7 +192,8 @@ public class Main {
             showTodo();
             System.out.println("Pilih Menu");
             System.out.println("1. Tambah");
-            System.out.println("2. Hapus");
+            System.out.println("2. Edit");
+            System.out.println("3. Hapus");
             System.out.println("x. Keluar");
             String inputMenu = menuTodo(sc);
 
@@ -151,6 +202,9 @@ public class Main {
                     viewAddTodo();
                     break;
                 case "2":
+                    viewUpdateTodo();
+                    break;
+                case "3":
                     viewRemoveTodo();
                     break;
                 case "x":
@@ -238,5 +292,49 @@ public class Main {
         showTodo();
 
     }
+
+
+    /**
+     * tampilan untuk memperbarui/mengedit todolist
+     */
+    public static void viewUpdateTodo() {
+        boolean checkIndex = false;
+        boolean updateSucces;
+        if (checkAllTodo()) {
+            System.out.println("MENGEDIT TODOLIST");
+            String inputIndex = input(sc, "Nomor yang akan diedit (\"x\" jika batal)");
+
+            if (!inputIndex.equals("x")) {
+                checkIndex = checkUpdateTodo(Integer.valueOf(inputIndex));
+            }
+
+            if (!inputIndex.equals("x") && checkIndex) {
+                String inputEdit = input(sc, "Edit (\"x\" jika batal)");
+
+                if (!inputEdit.equals("x")) {
+                    updateSucces = updateTodo(Integer.valueOf(inputIndex), inputEdit);
+
+                    if (updateSucces) {
+                        System.out.println("Berhasil mengedit todolist");
+                    } else {
+                        System.out.println("Gagal mengedit toddolist");
+                    }
+                }
+
+            }
+        }
+    }
+
+    /**
+     * method untuk testing tampilan update todolist
+     */
+    public static void testViewUpdateTodo() {
+        addTodo("pertama");
+        addTodo("kedua");
+        addTodo("ketiga");
+        viewTodo();
+    }
+
+
 
 }
